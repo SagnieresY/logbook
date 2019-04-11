@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: logbook_production
+  database: logbook
   username: yves
   password: <%= ENV['LOGBOOK_DATABASE_PASSWORD'] %>
