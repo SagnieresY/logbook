@@ -82,4 +82,4 @@ production:
   <<: *default
   database: logbook_production
   username: yves
-  password: mysqlpassword
+  password: <%= ENV['LOGBOOK_DATABASE_PASSWORD'] %>
