@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_12_201120) do
+ActiveRecord::Schema.define(version: 2019_04_12_201352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "flights", force: :cascade do |t|
+    t.date "date"
+    t.string "aircraft_type"
+    t.string "aircraft_registration"
+    t.string "pic_name"
+    t.string "copi_name"
+    t.string "engine_type"
+    t.integer "day_time"
+    t.integer "night_time"
+    t.boolean "simulator"
+    t.integer "takeoffs_landings"
+    t.boolean "cross_country"
+    t.string "command_type"
+    t.string "from"
+    t.string "to"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
