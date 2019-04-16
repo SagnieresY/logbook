@@ -1,0 +1,22 @@
+<%= simple_form_for (@flight) do |f| %>
+  <%= f.input :date %>
+  <%= f.input :from %>
+  <%= f.input :to %>
+  <%= f.input :aircraft_type %>
+  <%= f.input :aircraft_registration %>
+  <%= f.input :engine_type, collection: ["single", "multi"] %>
+  <%= f.input :simulator, as: :boolean %>
+  <%= f.input :cross_country, as: :boolean %>
+  <%= f.input :command_type, collection: ["PIC", "Dual", "Co-pilot"] %>
+  <%= f.input :pic_name %>
+  <%= f.input :copi_name %>
+  <%= f.input :day_time %>
+  <%= f.input :night_time %>
+  <%= f.input :takeoffs_landings %>
+
+  <%= f.button :submit %>
+<% end %>
+
+
+
+
