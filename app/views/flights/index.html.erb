@@ -65,90 +65,86 @@
       <td> <%= flight.pic_name %></td>
       <td> <%= flight.copi_name %></td>
       <td>
-        <% if flight.engine_type == "single" && flight.day_time != nil && flight.simulator == false && flight.command_type == "Dual" %>
+        <% if flight.engine_type == "single" && flight.day_time != nil && flight.command_type == "Dual" %>
           <%= flight.day_time %>
         <% end %>
       </td>
       <td>
-        <% if flight.engine_type == "single" && flight.day_time != nil && flight.simulator == false && flight.command_type == "PIC" %>
+        <% if flight.engine_type == "single" && flight.day_time != nil && flight.command_type == "PIC" %>
           <%= flight.day_time %>
         <% end %>
       </td>
       <td>
-          <% if flight.engine_type == "single" && flight.night_time != nil && flight.simulator == false && flight.command_type == "Dual" %>
+          <% if flight.engine_type == "single" && flight.night_time != nil && flight.command_type == "Dual" %>
           <%= flight.night_time %>
         <% end %>
       </td>
       <td>
-          <% if flight.engine_type == "single" && flight.night_time != nil && flight.simulator == false && flight.command_type == "PIC" %>
+          <% if flight.engine_type == "single" && flight.night_time != nil && flight.command_type == "PIC" %>
           <%= flight.night_time %>
         <% end %>
       </td>
       <td>
-        <% if flight.engine_type == "multi" && flight.day_time != nil && flight.simulator == false && flight.command_type == "Dual" %>
+        <% if flight.engine_type == "multi" && flight.day_time != nil && flight.command_type == "Dual" %>
           <%= flight.day_time %>
         <% end %>
       </td>
       <td>
-        <% if flight.engine_type == "multi" && flight.day_time != nil && flight.simulator == false && flight.command_type == "PIC" %>
+        <% if flight.engine_type == "multi" && flight.day_time != nil && flight.command_type == "PIC" %>
           <%= flight.day_time %>
         <% end %>
       </td>
       <td>
-        <% if flight.engine_type == "multi" && flight.day_time != nil && flight.simulator == false && flight.command_type == "Co-pilot" %>
+        <% if flight.engine_type == "multi" && flight.day_time != nil && flight.command_type == "Co-pilot" %>
           <%= flight.day_time %>
         <% end %>
       </td>
       <td>
-        <% if flight.engine_type == "multi" && flight.night_time != nil && flight.simulator == false && flight.command_type == "Dual" %>
+        <% if flight.engine_type == "multi" && flight.night_time != nil && flight.command_type == "Dual" %>
           <%= flight.night_time %>
         <% end %>
       </td>
       <td>
-        <% if flight.engine_type == "multi" && flight.night_time != nil && flight.simulator == false && flight.command_type == "PIC" %>
+        <% if flight.engine_type == "multi" && flight.night_time != nil && flight.command_type == "PIC" %>
           <%= flight.night_time %>
         <% end %>
       </td>
       <td>
-        <% if flight.engine_type == "multi" && flight.night_time != nil && flight.simulator == false && flight.command_type == "Co-pilot" %>
+        <% if flight.engine_type == "multi" && flight.night_time != nil && flight.command_type == "Co-pilot" %>
           <%= flight.night_time %>
         <% end %>
       </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td> <%= flight.actual_imc %> </td>
+      <td> <%= flight.hood %> </td>
+      <td> <%= flight.simulator_time %> </td>
+      <td> <%= flight.ifr_appr %> </td>
       <td>
-        <% if flight.simulator == true %>
-          <%= flight.day_time %>
-        <% end %>
-      </td>
-      <td>
-        <% if flight.night_time == nil && flight.simulator == false %>
+        <% if flight.night_time == nil %>
           <%= flight.takeoffs_landings %>
         <% end %>
       </td>
       <td>
-        <% if flight.night_time != nil && flight.simulator == false %>
+        <% if flight.night_time != nil %>
           <%= flight.takeoffs_landings %>
         <% end %>
       </td>
       <td>
-        <% if flight.cross_country == true && flight.day_time != nil && flight.simulator == false && flight.command_type == "Dual" %>
+        <% if flight.cross_country == true && flight.day_time != nil && flight.command_type == "Dual" %>
           <%= flight.day_time %>
         <% end %>
       </td>
       <td>
-        <% if flight.cross_country == true && flight.day_time != nil && flight.simulator == false && flight.command_type == "PIC" %>
+        <% if flight.cross_country == true && flight.day_time != nil && flight.command_type == "PIC" %>
           <%= flight.day_time %>
         <% end %>
       </td>
       <td>
-        <% if flight.cross_country == true && flight.night_time != nil && flight.simulator == false && flight.command_type == "Dual" %>
+        <% if flight.cross_country == true && flight.night_time != nil && flight.command_type == "Dual" %>
           <%= flight.night_time %>
         <% end %>
       </td>
       <td>
-        <% if flight.cross_country == true && flight.night_time != nil && flight.simulator == false && flight.command_type == "PIC" %>
+        <% if flight.cross_country == true && flight.night_time != nil && flight.command_type == "PIC" %>
           <%= flight.night_time %>
         <% end %>
       </td>

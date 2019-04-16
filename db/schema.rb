@@ -22,14 +22,17 @@ ActiveRecord::Schema.define(version: 2019_04_12_201352) do
     t.string "pic_name"
     t.string "copi_name"
     t.string "engine_type"
-    t.integer "day_time"
-    t.integer "night_time"
-    t.boolean "simulator"
+    t.float "day_time"
+    t.float "night_time"
     t.integer "takeoffs_landings"
     t.boolean "cross_country"
     t.string "command_type"
     t.string "from"
     t.string "to"
+    t.float "actual_imc"
+    t.float "hood"
+    t.float "simulator_time"
+    t.integer "ifr_appr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

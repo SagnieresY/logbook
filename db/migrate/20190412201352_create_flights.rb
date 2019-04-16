@@ -8,15 +8,17 @@ class CreateFlights < ActiveRecord::Migration[5.2]
       t.string :pic_name
       t.string :copi_name
       t.string :engine_type
-      t.integer :day_time
-      t.integer :night_time
-      t.boolean :simulator
+      t.float :day_time
+      t.float :night_time
       t.integer :takeoffs_landings
       t.boolean :cross_country
       t.string :command_type
       t.string :from
       t.string :to
-
+      t.float :actual_imc
+      t.float :hood
+      t.float :simulator_time
+      t.integer :ifr_appr
       t.timestamps
     end
   end
