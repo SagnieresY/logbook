@@ -9,7 +9,7 @@
       <th scope="col" colspan="6" >Multi</th>
       <th scope="col" rowspan="2" colspan="4">Instruments</th>
       <th scope="col" rowspan="2"colspan="2">Takeoffs & Landing</th>
-      <th scope="col" colspan="6">Cross-Country</th>
+      <th scope="col" colspan="8">Cross-Country</th>
       <th scope="col" rowspan="2">Remarks</th>
     </tr>
     <tr>
@@ -17,8 +17,8 @@
       <th scope="col" colspan="2">Night</th>
       <th scope="col" colspan="3">Day</th>
       <th scope="col" colspan="3">Night</th>
-      <th scope="col" colspan="2">Day</th>
-      <th scope="col" colspan="2">Night</th>
+      <th scope="col" colspan="3">Day</th>
+      <th scope="col" colspan="3">Night</th>
       <th scope="col" colspan="2">Route of Flight</th>
     </tr>
     <tr>
@@ -47,14 +47,45 @@
       <th scope="col">Night</th>
       <th scope="col">Dual</th>
       <th scope="col">PIC</th>
+      <th scope="col">Copi</th>
       <th scope="col">Dual</th>
       <th scope="col">PIC</th>
+      <th scope="col">Copi</th>
       <th scope="col">From</th>
       <th scope="col">To</th>
       <th scope="col">Details</th>
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th>TOTAL</th>
+      <th colspan="6"> <%= @flights.sum(:night_time) + @flights.sum(:day_time) %></th>
+      <th> <%= @flights.single_engine.dual.sum(:day_time) %> </th>
+      <th> <%= @flights.single_engine.pic.sum(:day_time) %> </th>
+      <th> <%= @flights.single_engine.dual.sum(:night_time) %> </th>
+      <th> <%= @flights.single_engine.pic.sum(:night_time) %> </th>
+      <th> <%= @flights.multi_engine.dual.sum(:day_time) %> </th>
+      <th> <%= @flights.multi_engine.pic.sum(:day_time) %> </th>
+      <th> <%= @flights.multi_engine.co_pilot.sum(:day_time) %> </th>
+      <th> <%= @flights.multi_engine.dual.sum(:night_time) %> </th>
+      <th> <%= @flights.multi_engine.pic.sum(:night_time) %> </th>
+      <th> <%= @flights.multi_engine.co_pilot.sum(:night_time) %> </th>
+      <th> <%= @flights.sum(:actual_imc) %> </th>
+      <th> <%= @flights.sum(:hood) %> </th>
+      <th> <%= @flights.sum(:simulator_time) %> </th>
+      <th> <%= @flights.sum(:ifr_appr) %> </th>
+      <th> <%= @flights.day_only.sum(:takeoffs_landings) %> </th>
+      <th> <%= @flights.night.sum(:takeoffs_landings) %> </th>
+      <th> <%= @flights.cross_country.dual.sum(:day_time) %> </th>
+      <th> <%= @flights.cross_country.pic.sum(:day_time) %> </th>
+      <th> <%= @flights.cross_country.co_pilot.sum(:day_time) %> </th>
+      <th> <%= @flights.cross_country.dual.sum(:night_time) %> </th>
+      <th> <%= @flights.cross_country.pic.sum(:night_time) %> </th>
+      <th> <%= @flights.cross_country.co_pilot.sum(:night_time) %> </th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+    </tr>
 <% @flights.each do |flight| %>
     <tr>
       <td> <%= flight.date.year %></th>
@@ -119,12 +150,12 @@
       <td> <%= flight.simulator_time %> </td>
       <td> <%= flight.ifr_appr %> </td>
       <td>
-        <% if flight.night_time == nil %>
+        <% if flight.night_time == nil || flight.night_time == 0 %>
           <%= flight.takeoffs_landings %>
         <% end %>
       </td>
       <td>
-        <% if flight.night_time != nil %>
+        <% unless flight.night_time.nil? || flight.night_time == 0 %>
           <%= flight.takeoffs_landings %>
         <% end %>
       </td>
@@ -139,12 +170,22 @@
         <% end %>
       </td>
       <td>
+        <% if flight.cross_country == true && flight.day_time != nil && flight.command_type == "Co-pilot" %>
+          <%= flight.day_time %>
+        <% end %>
+      </td>
+      <td>
         <% if flight.cross_country == true && flight.night_time != nil && flight.command_type == "Dual" %>
           <%= flight.night_time %>
         <% end %>
       </td>
       <td>
         <% if flight.cross_country == true && flight.night_time != nil && flight.command_type == "PIC" %>
+          <%= flight.night_time %>
+        <% end %>
+      </td>
+      <td>
+        <% if flight.cross_country == true && flight.night_time != nil && flight.command_type == "Co-pilot" %>
           <%= flight.night_time %>
         <% end %>
       </td>
