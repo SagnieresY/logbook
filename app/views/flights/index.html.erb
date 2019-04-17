@@ -5,7 +5,7 @@
       <th scope="col" rowspan="2" colspan="2">Aircaft</th>
       <th scope="col" rowspan="2">PIC</th>
       <th scope="col" rowspan="2">CoPi</th>
-      <th scope="col" colspan="4">Single Engine</th>
+      <th scope="col" colspan="6">Single Engine</th>
       <th scope="col" colspan="6" >Multi</th>
       <th scope="col" rowspan="2" colspan="4">Instruments</th>
       <th scope="col" rowspan="2"colspan="2">Takeoffs & Landing</th>
@@ -13,8 +13,8 @@
       <th scope="col" rowspan="2">Remarks</th>
     </tr>
     <tr>
-      <th scope="col" colspan="2">Day</th>
-      <th scope="col" colspan="2">Night</th>
+      <th scope="col" colspan="3">Day</th>
+      <th scope="col" colspan="3">Night</th>
       <th scope="col" colspan="3">Day</th>
       <th scope="col" colspan="3">Night</th>
       <th scope="col" colspan="3">Day</th>
@@ -31,8 +31,10 @@
       <th scope="col">Name</th>
       <th scope="col">Dual</th>
       <th scope="col">Pic</th>
+      <th scope="col">Copi</th>
       <th scope="col">Dual</th>
-      <th scope="col">PIC</th>
+      <th scope="col">PiC</th>
+      <th scope="col">Copi</th>
       <th scope="col">Dual</th>
       <th scope="col">Pic</th>
       <th scope="col">Copi</th>
@@ -62,8 +64,10 @@
       <th colspan="6"> <%= @flights.sum(:night_time) + @flights.sum(:day_time) %></th>
       <th> <%= @flights.single_engine.dual.sum(:day_time) %> </th>
       <th> <%= @flights.single_engine.pic.sum(:day_time) %> </th>
+      <th> <%= @flights.single_engine.co_pilot.sum(:day_time) %> </th>
       <th> <%= @flights.single_engine.dual.sum(:night_time) %> </th>
       <th> <%= @flights.single_engine.pic.sum(:night_time) %> </th>
+      <th> <%= @flights.single_engine.co_pilot.sum(:night_time) %> </th>
       <th> <%= @flights.multi_engine.dual.sum(:day_time) %> </th>
       <th> <%= @flights.multi_engine.pic.sum(:day_time) %> </th>
       <th> <%= @flights.multi_engine.co_pilot.sum(:day_time) %> </th>
@@ -106,12 +110,22 @@
         <% end %>
       </td>
       <td>
+        <% if flight.engine_type == "single" && flight.day_time != nil && flight.command_type == "Co-pilot" %>
+          <%= flight.day_time %>
+        <% end %>
+      </td>
+      <td>
           <% if flight.engine_type == "single" && flight.night_time != nil && flight.command_type == "Dual" %>
           <%= flight.night_time %>
         <% end %>
       </td>
       <td>
           <% if flight.engine_type == "single" && flight.night_time != nil && flight.command_type == "PIC" %>
+          <%= flight.night_time %>
+        <% end %>
+      </td>
+      <td>
+          <% if flight.engine_type == "single" && flight.night_time != nil && flight.command_type == "Co-pilot" %>
           <%= flight.night_time %>
         <% end %>
       </td>
