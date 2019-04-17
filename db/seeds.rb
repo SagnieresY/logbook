@@ -30,7 +30,8 @@
                   simulator_time: rand(0..2),
                   actual_imc: rand(0..1),
                   hood: rand(1..2),
-                  takeoffs_landings: 1)
+                  takeoffs_landings: 1,
+                  user: test_user)
     f.save!
   end
 

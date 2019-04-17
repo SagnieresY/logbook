@@ -33,9 +33,10 @@ ActiveRecord::Schema.define(version: 2019_04_12_201352) do
     t.float "hood"
     t.float "simulator_time"
     t.integer "ifr_appr"
-    # t.string "remarks"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_flights_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

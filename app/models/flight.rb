@@ -1,4 +1,8 @@
 class Flight < ApplicationRecord
+
+  belongs_to :user
+  validates_presence_of :user
+
   scope :single_engine, -> { where(engine_type: 'single') }
   scope :multi_engine, -> { where(engine_type: 'multi') }
   scope :dual, -> { where(command_type: 'Dual') }

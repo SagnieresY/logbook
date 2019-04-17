@@ -1,20 +1,28 @@
 class FlightsController < ApplicationController
+  # skip_before_action :authenticate_user!, only: [:index]
+  before_action :set_flight, only: [:show, :edit, :update, :destroy]
 
   def index
-    @flights = Flight.all
+    @flights = policy_scope(current_user.flights)
   end
 
   def show
   end
 
   def new
-    @flight = Flight.new
+    @flight = current_user.flights.new
+    authorize @flight
   end
 
   def create
-    flight = Flight.new(flight_params)
-    flight.save
-    redirect_to flights_path
+    @flight = current_user.flights.new(flight_params)
+    authorize @flight
+
+    if @flight.save
+      redirect_to flights_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -22,7 +30,12 @@ class FlightsController < ApplicationController
 
   def update
     @flight.update(flight_params)
-    redirect_to flight_path(@flight)
+
+    if @flight.save
+      redirect_to @flight
+    else
+      render :edit
+    end
   end
 
   def destroy

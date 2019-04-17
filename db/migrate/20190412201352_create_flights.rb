@@ -19,6 +19,8 @@ class CreateFlights < ActiveRecord::Migration[5.2]
       t.float :hood
       t.float :simulator_time
       t.integer :ifr_appr
+
+      t.references :user, index: true
       t.timestamps
     end
   end
