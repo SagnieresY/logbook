@@ -18,9 +18,24 @@
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
                 required: true,
+                hint: "Needed to validate any changes in yout account",
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :radio_certificate %>
+    <%= f.input :aviation_document %>
+    <%= f.input :aviation_document_date, include_blank: true, start_year: nil %>
+    <%= f.input :pilot_license_type %>
+    <%= f.input :pilot_license_number %>
+    <%= f.input :medical_category %>
+    <%= f.input :medical_date, include_blank: true, start_year: nil %>
+    <%= f.input :instrument_rating_date, include_blank: true, start_year: nil %>
+    <%= f.input :instrument_rating_renewal_date, include_blank: true, start_year: nil %>
+    <%= f.input :night_rating_date, include_blank: true, start_year: nil %>
+    <%= f.input :FAA_PPL_license %>
+    <%= f.input :FAA_PPL_Conversion_date, include_blank: true, start_year: nil %>
+    <%= f.input :FAA_CPL_license %>
+    <%= f.input :FAA_CPL_conversion_date, include_blank: true, start_year: nil %>
+    <%= f.input :biennial_flight_review, include_blank: true, start_year: nil %>
   </div>
 
   <div class="form-actions">

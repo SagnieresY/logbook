@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_12_201352) do
+ActiveRecord::Schema.define(version: 2019_04_18_162202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_04_12_201352) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "remarks"
     t.index ["user_id"], name: "index_flights_on_user_id"
   end
 
@@ -47,6 +48,21 @@ ActiveRecord::Schema.define(version: 2019_04_12_201352) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "radio_certificate"
+    t.string "aviation_document"
+    t.date "aviation_document_date"
+    t.integer "pilot_license_number"
+    t.string "pilot_license_type"
+    t.date "medical_date"
+    t.integer "medical_category"
+    t.date "instrument_rating_date"
+    t.date "instrument_rating_renewal_date"
+    t.date "night_rating_date"
+    t.date "FAA_PPL_Conversion_date"
+    t.integer "FAA_PPL_license"
+    t.integer "FAA_CPL_license"
+    t.date "FAA_CPL_conversion_date"
+    t.date "biennial_flight_review"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
