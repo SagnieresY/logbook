@@ -20,4 +20,8 @@ class FlightPolicy < ApplicationPolicy
    def destroy?
     record.user == user  # Only restaurant creator can update it
   end
+
+  def import?
+    true
+  end
 end

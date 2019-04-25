@@ -1,5 +1,5 @@
 class FlightsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [:index]
+  # skip_before_action :authenticate_user!, only: [:import]
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -41,6 +41,13 @@ class FlightsController < ApplicationController
   def destroy
     @flight.destroy
     redirect_to flights_path
+  end
+
+  def import
+    authorize Flight
+    Flight.import(params[:file], current_user)
+
+    redirect_to root_url, notice: 'Flights imported.'
   end
 
   private
