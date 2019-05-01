@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/import', to: 'pages#import', as: :import
+
 end

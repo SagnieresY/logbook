@@ -1,17 +1,5 @@
-<% if policy(Flight).create? %>
-  <%= link_to "Record a flight", new_flight_path, class: "btn btn-outline-primary" %>
-  <%= link_to "Edit information",  edit_user_registration_path, class: "btn btn-outline-primary" %>
-<% end %>
 
-<div>
-  <h6> Import Flights</h6>
-  <%= form_tag import_flights_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <br>
-    <%= submit_tag "Import", class: "btn btn-outline-primary" %>
-  <% end %>
-</div>
-
+<h2>INDEX</h2>
 
 <table class="table table-sm table-responsive-md table-striped table-hover table-bordered">
   <thead>

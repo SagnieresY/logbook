@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "http://is4.mzstatic.com/image/thumb/Purple128/v4/83/f7/ee/83f7ee9c-0281-3f95-f831-53f884234979/source/1200x630bb.jpg" %>
     <% end %>
 
@@ -9,21 +9,22 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+          <%= link_to "Record a flight", new_flight_path, class: "nav-link active" %>
         </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
+        <li class="nav-item">
+          <%= link_to "Edit information",  edit_user_registration_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Import Flights",  import_path, class: "nav-link active" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link active" %>
         </li>
       <% else %>
         <li class="nav-item">
@@ -33,3 +34,12 @@
     </ul>
   </div>
 </div>
+
+<script>
+  $(".navbar-nav .nav-link").on("mouseover", function(){
+     $(this).removeClass("active");
+  });
+  $(".navbar-nav .nav-link").on("mouseout", function(){
+    $(this).addClass("active");
+  });
+</script>
