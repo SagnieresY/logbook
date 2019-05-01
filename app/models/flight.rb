@@ -1,6 +1,8 @@
 class Flight < ApplicationRecord
   require 'roo'
 
+  validates_presence_of :date, :engine_type, :command_type, :cross_country
+
   belongs_to :user
   validates_presence_of :user
 
