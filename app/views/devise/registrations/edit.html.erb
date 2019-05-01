@@ -5,59 +5,106 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :email, required: true, autofocus: true %>
+      <div class="row">
+        <%= f.input :email, required: true, autofocus: true, wrapper_html: { class: 'col-sm'} %>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-      <% end %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
 
-      <%= f.input :password,
-      hint: "leave it blank if you don't want to change it",
-      required: false,
-      input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :current_password,
-                  required: true,
-                  hint: "Needed to validate any changes in yout account",
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :radio_certificate %>
-      <%= f.input :aviation_document, label: 'Aviation Document Number' %>
-      <%= f.input :aviation_document_date,
-                  label: 'Aviation Document Expiration Date',
-                  as: :string, input_html: { class: 'flatpickr-input' } %>
-      <%= f.input :pilot_license_type, collection: ["PPL", "CPL", "Other"] %>
-      <%= f.input :pilot_license_number %>
-      <%= f.input :medical_category, collection: [1,3] %>
-      <%= f.input :medical_date,
-                  label: 'Last Medical Date',
-                  as: :string, input_html: { class: 'flatpickr-input' } %>
-      <%= f.input :instrument_rating_date,
-                  label: 'Instrument Rating Certification Date',
-                  as: :string,
-                  input_html: { class: 'flatpickr-input' } %>
-      <%= f.input :instrument_rating_renewal_date,
-                  label: 'Instrument Rating Renewal Date',
-                  as: :string, input_html: { class: 'flatpickr-input' } %>
-      <%= f.input :night_rating_date,
-                  label: 'Night Rating Certifiaction Date',
-                  as: :string, input_html: { class: 'flatpickr-input' } %>
-      <%= f.input :FAA_PPL_license %>
-      <%= f.input :FAA_PPL_Conversion_date,
-                  label: 'FAA PPL Conversion Date',
-                  as: :string, input_html: { class: 'flatpickr-input' } %>
-      <%= f.input :FAA_CPL_license %>
-      <%= f.input :FAA_CPL_conversion_date,
-                  label: 'FAA CPL Conversion Date',
-                  as: :string, input_html: { class: 'flatpickr-input' } %>
-      <%= f.input :biennial_flight_review,
-                  label: 'Last Biennal Flight Review Date',
-                  as: :string, input_html: { class: 'flatpickr-input' } %>
+        <%= f.input :current_password,
+                    required: true,
+                    hint: "Needed to validate any changes in yout account",
+                    input_html: { autocomplete: "current-password" },
+                    wrapper_html: { class: 'col-sm'} %>
+
+        <div class="w-100"></div>
+
+        <%= f.input :password,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    label: 'New Password',
+                    input_html: { autocomplete: "new-password" },
+                    wrapper_html: { class: 'col-sm'} %>
+        <%= f.input :password_confirmation,
+                    required: false,
+                    label: 'New Password Confirmation',
+                    input_html: { autocomplete: "new-password" },
+                    wrapper_html: { class: 'col-sm'} %>
+
+        <div class="w-100"></div>
+
+
+        <%= f.input :aviation_document, label: 'Aviation Doc. Number',
+                    wrapper_html: { class: 'col-sm'} %>
+        <%= f.input :aviation_document_date,
+                    label: 'Aviation Doc. Exp. Date',
+                    as: :string, input_html: { class: 'flatpickr-input' },
+                    wrapper_html: { class: 'col-sm'} %>
+                 <div class="w-100"></div>
+
+        <%= f.input :pilot_license_type, collection: ["PPL", "CPL", "Other"],
+                    wrapper_html: { class: 'col-sm'} %>
+        <%= f.input :pilot_license_number,
+                    wrapper_html: { class: 'col-sm'} %>
+
+        <div class="w-100"></div>
+
+        <%= f.input :medical_category, collection: [1,3],
+                    wrapper_html: { class: 'col-sm'} %>
+        <%= f.input :medical_date,
+                    label: 'Last Medical Date',
+                    as: :string, input_html: { class: 'flatpickr-input' },
+                    wrapper_html: { class: 'col-sm'} %>
+
+        <div class="w-100"></div>
+
+        <%= f.input :instrument_rating_date,
+                    label: 'IFR Certification Date',
+                    as: :string,
+                    input_html: { class: 'flatpickr-input' },
+                    wrapper_html: { class: 'col-sm'} %>
+        <%= f.input :instrument_rating_renewal_date,
+                    label: 'IFR Renewal Date',
+                    as: :string, input_html: { class: 'flatpickr-input' },
+                    wrapper_html: { class: 'col-sm'} %>
+
+        <div class="w-100"></div>
+
+        <%= f.input :radio_certificate,
+                    wrapper_html: { class: 'col-sm'} %>
+        <%= f.input :night_rating_date,
+                    label: 'Night Rating Date',
+                    as: :string, input_html: { class: 'flatpickr-input' },
+                    wrapper_html: { class: 'col-sm'} %>
+        <%= f.input :biennial_flight_review,
+                    label: 'Last Biennal Review',
+                    as: :string, input_html: { class: 'flatpickr-input' },
+                    wrapper_html: { class: 'col-sm'} %>
+
+        <div class="w-100"></div>
+
+        <%= f.input :FAA_PPL_license,
+                    label: 'FAA PPL #',
+                    wrapper_html: { class: 'col-sm'} %>
+        <%= f.input :FAA_PPL_Conversion_date,
+                    label: 'FAA PPL Date',
+                    as: :string, input_html: { class: 'flatpickr-input' },
+                    wrapper_html: { class: 'col-sm'} %>
+        <div class="w-100"></div>
+
+        <%= f.input :FAA_CPL_license,
+                    label: 'FAA CPL #',
+                    wrapper_html: { class: 'col-sm'} %>
+        <%= f.input :FAA_CPL_conversion_date,
+                    label: 'FAA CPL Date',
+                    as: :string, input_html: { class: 'flatpickr-input' },
+                    wrapper_html: { class: 'col-sm'} %>
+      </div>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Update" %>
+      <%= f.button :submit, "Update", class: "btn btn-primary" %>
     </div>
   <% end %>
 
