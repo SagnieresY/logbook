@@ -48,6 +48,16 @@ class Flight < ApplicationRecord
     engine_type.downcase!
     command_type.downcase!
 
+    #makes uppercase airport & aircraft
+    from.upcase! if !from.nil?
+    to.upcase! if !to.nil?
+    aircraft_type.upcase! if !aircraft_type.nil?
+    aircraft_registration.upcase! if !aircraft_type.nil?
+
+    #titleize names
+    pic_name.titleize if !pic_name.nil?
+    copi_name.titleize if !copi_name.nil?
+
     #check if cross country was forgotten but there are hours
     if !cross_country? && !cross_country_day_time.nil?
       return update(cross_country:true)

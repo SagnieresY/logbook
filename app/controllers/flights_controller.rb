@@ -3,7 +3,7 @@ class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
 
   def index
-    @flights = policy_scope(current_user.flights)
+    @flights = policy_scope(current_user.flights.order("date ASC"))
   end
 
   def show
