@@ -1,40 +1,43 @@
-<div class="container">
-    <h2>New Flight</h2>
-    <%= simple_form_for (@flight) do |f| %>
-    <div class="row">
-      <div class="w-100"></div>
-      <%= f.input :date,
-                  as: :string,
-                  input_html: { class: 'flatpickr-input' },
-                  wrapper_html: { class: 'col'} %>
-      <%= f.input :from, wrapper_html: { class: 'col'} %>
-      <%= f.input :to, wrapper_html: { class: 'col'} %>
-      <%= f.input :cross_country,
-                  collection: ["True", "False"],
-                  wrapper_html: { class: 'col align-self-center'} %>
-      <div class="w-100"></div>
-      <%= f.input :aircraft_type, wrapper_html: { class: 'col' }  %>
-      <%= f.input :aircraft_registration, wrapper_html: { class: 'col' }  %>
-      <%= f.input :engine_type,
-                  include_blank: false,
-                  collection: ["single", "multi"], wrapper_html: { class: 'col' }  %>
-      <div class="w-100"></div>
-      <%= f.input :command_type,
-                  collection: ["PIC", "Dual", "Co-pilot"],
-                  wrapper_html: { class: 'col' }  %>
-      <%= f.input :pic_name, wrapper_html: { class: 'col' }  %>
-      <%= f.input :copi_name, wrapper_html: { class: 'col' }  %>
-     <div class="w-100"></div>
-      <%= f.input :day_time, wrapper_html: { class: 'col' }  %>
-      <%= f.input :night_time, wrapper_html: { class: 'col' }  %>
-      <%= f.input :simulator_time, wrapper_html: { class: 'col' }  %>
-      <div class="w-100"></div>
-      <%= f.input :actual_imc, wrapper_html: { class: 'col' }  %>
-      <%= f.input :hood, wrapper_html: { class: 'col' }  %>
-      <%= f.input :takeoffs_landings, wrapper_html: { class: 'col' }  %>
-      <div class="w-100"></div>
-       <%= f.input :remarks, wrapper_html: { class: 'col' } %>
-    </div>
-    <%= f.button :submit, "Record Flight" , class: "btn btn-primary" %>
-  <% end %>
-</div>
+<h2>New Flight</h2>
+<%= simple_form_for (@flight) do |f| %>
+  <div class="row">
+    <div class="w-100"></div>
+    <%= f.input :date,
+                as: :string,
+                input_html: { class: 'flatpickr-input' },
+                wrapper_html: { class: 'col'} %>
+    <%= f.input :from, wrapper_html: { class: 'col'} %>
+    <%= f.input :to, wrapper_html: { class: 'col'} %>
+    <div class="w-100"></div>
+    <%= f.input :aircraft_type, wrapper_html: { class: 'col' }  %>
+    <%= f.input :aircraft_registration, wrapper_html: { class: 'col' }  %>
+    <%= f.input :engine_type,
+                include_blank: false,
+                collection: ["Single", "Multi"], wrapper_html: { class: 'col' }  %>
+    <div class="w-100"></div>
+    <%= f.input :command_type,
+                collection: ["PIC", "Dual", "Co-pilot"],
+                wrapper_html: { class: 'col' }  %>
+    <%= f.input :pic_name, wrapper_html: { class: 'col' }  %>
+    <%= f.input :copi_name, wrapper_html: { class: 'col' }  %>
+   <div class="w-100"></div>
+    <%= f.input :day_time, wrapper_html: { class: 'col' }  %>
+    <%= f.input :night_time, wrapper_html: { class: 'col' }  %>
+    <%= f.input :simulator_time, wrapper_html: { class: 'col' }  %>
+    <div class="w-100"></div>
+    <%= f.input :cross_country,
+                include_blank: false,
+                collection: ["False", "True"],
+                wrapper_html: { class: 'col'} %>
+    <%= f.input :cross_country_day_time, wrapper_html: { class: 'col' }  %>
+    <%= f.input :cross_country_night_time, wrapper_html: { class: 'col' }  %>
+    <div class="w-100"></div>
+    <%= f.input :actual_imc, wrapper_html: { class: 'col' }  %>
+    <%= f.input :hood, wrapper_html: { class: 'col' }  %>
+    <%= f.input :ifr_appr, label: 'IFR Approaches', wrapper_html: { class: 'col' }  %>
+    <%= f.input :takeoffs_landings, wrapper_html: { class: 'col' }  %>
+    <div class="w-100"></div>
+     <%= f.input :remarks, wrapper_html: { class: 'col' } %>
+  </div>
+  <%= f.button :submit, "Record Flight" , class: "btn btn-primary" %>
+<% end %>

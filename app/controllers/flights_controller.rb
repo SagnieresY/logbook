@@ -16,6 +16,7 @@ class FlightsController < ApplicationController
 
   def create
     @flight = current_user.flights.new(flight_params)
+    @flight.check_before_save
     authorize @flight
 
     if @flight.save
@@ -57,6 +58,6 @@ class FlightsController < ApplicationController
   end
 
   def flight_params
-    params.require(:flight).permit(:date, :aircraft_type, :aircraft_registration, :pic_name, :copi_name, :engine_type, :day_time, :night_time, :simulator, :takeoffs_landings, :cross_country, :command_type, :from, :to, :remarks)
+    params.require(:flight).permit(:date, :aircraft_type, :aircraft_registration, :pic_name, :copi_name, :engine_type, :day_time, :night_time, :simulator, :ifr_appr, :takeoffs_landings, :cross_country, :command_type, :from, :to, :remarks, :cross_country_time)
   end
 end

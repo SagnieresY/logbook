@@ -1,14 +1,12 @@
-<div class="container">
-  <h2>Import Flights</h2>
+<h2>Import Flights</h2>
 
+<br>
+
+<div>
+  <%= form_tag import_flights_path, multipart: true do %>
+  <%= file_field_tag :file %>
   <br>
-
-  <div>
-    <%= form_tag import_flights_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <br>
-    <br>
-    <%= submit_tag "Import", class: "btn btn-primary" %>
-    <% end %>
-  </div>
+  <br>
+  <%= submit_tag "Import", class: "btn btn-primary" %>
+  <% end %>
 </div>
