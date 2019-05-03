@@ -44,6 +44,10 @@ class Flight < ApplicationRecord
     return day_time != nil
   end
 
+  def simu?
+    return simulator_time != nil && simulator_time != 0
+  end
+
   def check_before_save
     engine_type.downcase!
     command_type.downcase!

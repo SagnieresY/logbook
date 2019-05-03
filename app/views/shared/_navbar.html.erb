@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "http://is4.mzstatic.com/image/thumb/Purple128/v4/83/f7/ee/83f7ee9c-0281-3f95-f831-53f884234979/source/1200x630bb.jpg" %>
-    <% end %>
+  <%= image_tag "http://is4.mzstatic.com/image/thumb/Purple128/v4/83/f7/ee/83f7ee9c-0281-3f95-f831-53f884234979/source/1200x630bb.jpg" %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,25 +11,36 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav">
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Record a flight", new_flight_path, class: "nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Edit information",  edit_user_registration_path, class: "nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Import Flights",  import_path, class: "nav-link active" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link active" %>
-        </li>
+      <li class="nav-item">
+        <%= link_to "Home", root_path, class: "nav-link active" %>
+      </li>
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Flights
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "New Flight", new_flight_path, class: "dropdown-item" %>
+          <%= link_to "Import Flights",  import_path, class: "dropdown-item" %>
+        </div>
+      </li>
+
+
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          User
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Edit information",  edit_user_registration_path, class: "dropdown-item" %>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link active" %>
+      </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
       <% end %>
     </ul>
   </div>
@@ -37,8 +48,8 @@
 
 <script>
   $(".navbar-nav .nav-link").on("mouseover", function(){
-     $(this).removeClass("active");
-  });
+   $(this).removeClass("active");
+ });
   $(".navbar-nav .nav-link").on("mouseout", function(){
     $(this).addClass("active");
   });

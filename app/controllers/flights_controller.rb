@@ -6,6 +6,11 @@ class FlightsController < ApplicationController
     @flights = policy_scope(current_user.flights.order("date ASC"))
   end
 
+  def simpleindex
+    @flights = policy_scope(current_user.flights.order("date DESC"))
+    authorize @flights
+  end
+
   def show
   end
 
@@ -27,9 +32,11 @@ class FlightsController < ApplicationController
   end
 
   def edit
+    authorize @flight
   end
 
   def update
+    authorize @flight
     @flight.update(flight_params)
 
     if @flight.save

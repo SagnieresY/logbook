@@ -91,121 +91,121 @@
       </tr>
       <% @flights.each do |flight| %>
       <tr>
-        <td> <%= flight.date %></th>
-          <td> <%= flight.aircraft_type %></td>
-          <td> <%= flight.aircraft_registration %></td>
-          <td> <%= flight.from %></td>
-          <td> <%= flight.to %></td>
-          <td> <%= flight.pic_name %></td>
-          <td> <%= flight.copi_name %></td>
-          <td>
-            <% if flight.single? && flight.day_time? && flight.dual? %>
-            <%= flight.day_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.single? && flight.day_time? && flight.pic? %>
-            <%= flight.day_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.single? && flight.day_time? && flight.co_pilot? %>
-            <%= flight.day_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.single? && flight.night_time? && flight.dual? %>
-            <%= flight.night_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.single? && flight.night_time? && flight.pic? %>
-            <%= flight.night_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.single? && flight.night_time? && flight.co_pilot? %>
-            <%= flight.night_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.multi? && flight.day_time? && flight.dual? %>
-            <%= flight.day_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.multi? && flight.day_time? && flight.pic? %>
-            <%= flight.day_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.multi? && flight.day_time? && flight.co_pilot? %>
-            <%= flight.day_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.multi? && flight.night_time? && flight.dual? %>
-            <%= flight.night_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.multi? && flight.night_time? && flight.pic? %>
-            <%= flight.night_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.multi? && flight.night_time? && flight.co_pilot? %>
-            <%= flight.night_time %>
-            <% end %>
-          </td>
-          <td> <%= flight.actual_imc %> </td>
-          <td> <%= flight.hood %> </td>
-          <td> <%= flight.simulator_time %> </td>
-          <td> <%= flight.ifr_appr %> </td>
-          <td>
-            <% if flight.night_time.nil? || flight.night_time == 0 %>
-              <%= flight.takeoffs_landings %>
-            <% end %>
-          </td>
-          <td>
-            <% unless flight.night_time.nil? || flight.night_time == 0 %>
-              <%= flight.takeoffs_landings %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.day_time? && flight.dual? %>
-            <%= flight.cross_country_day_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.day_time? && flight.pic? %>
-            <%= flight.cross_country_day_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.day_time? && flight.co_pilot? %>
-            <%= flight.cross_country_day_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.night_time? && flight.dual? %>
-            <%= flight.cross_country_night_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.night_time? && flight.pic? %>
-            <%= flight.cross_country_night_time %>
-            <% end %>
-          </td>
-          <td>
-            <% if flight.night_time? && flight.co_pilot? %>
-            <%= flight.cross_country_night_time %>
-            <% end %>
-          </td>
-          <td> <%= flight.remarks %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+        <td> <%= flight.date %></td>
+        <td> <%= flight.aircraft_type %></td>
+        <td> <%= flight.aircraft_registration %></td>
+        <td> <%= flight.from %></td>
+        <td> <%= flight.to %></td>
+        <td> <%= flight.pic_name %></td>
+        <td> <%= flight.copi_name %></td>
+        <td>
+          <% if flight.single? && flight.day_time? && flight.dual? %>
+          <%= flight.day_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.single? && flight.day_time? && flight.pic? %>
+          <%= flight.day_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.single? && flight.day_time? && flight.co_pilot? %>
+          <%= flight.day_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.single? && flight.night_time? && flight.dual? %>
+          <%= flight.night_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.single? && flight.night_time? && flight.pic? %>
+          <%= flight.night_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.single? && flight.night_time? && flight.co_pilot? %>
+          <%= flight.night_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.multi? && flight.day_time? && flight.dual? %>
+          <%= flight.day_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.multi? && flight.day_time? && flight.pic? %>
+          <%= flight.day_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.multi? && flight.day_time? && flight.co_pilot? %>
+          <%= flight.day_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.multi? && flight.night_time? && flight.dual? %>
+          <%= flight.night_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.multi? && flight.night_time? && flight.pic? %>
+          <%= flight.night_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.multi? && flight.night_time? && flight.co_pilot? %>
+          <%= flight.night_time %>
+          <% end %>
+        </td>
+        <td> <%= flight.actual_imc %> </td>
+        <td> <%= flight.hood %> </td>
+        <td> <%= flight.simulator_time %> </td>
+        <td> <%= flight.ifr_appr %> </td>
+        <td>
+          <% if flight.night_time.nil? || flight.night_time == 0 %>
+          <%= flight.takeoffs_landings %>
+          <% end %>
+        </td>
+        <td>
+          <% unless flight.night_time.nil? || flight.night_time == 0 %>
+          <%= flight.takeoffs_landings %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.day_time? && flight.dual? %>
+          <%= flight.cross_country_day_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.day_time? && flight.pic? %>
+          <%= flight.cross_country_day_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.day_time? && flight.co_pilot? %>
+          <%= flight.cross_country_day_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.night_time? && flight.dual? %>
+          <%= flight.cross_country_night_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.night_time? && flight.pic? %>
+          <%= flight.cross_country_night_time %>
+          <% end %>
+        </td>
+        <td>
+          <% if flight.night_time? && flight.co_pilot? %>
+          <%= flight.cross_country_night_time %>
+          <% end %>
+        </td>
+        <td> <%= flight.remarks %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
   <!-- </div> -->

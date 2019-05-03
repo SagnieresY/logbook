@@ -6,22 +6,30 @@ class FlightPolicy < ApplicationPolicy
   end
 
   def show?
-    record.user == user  # Anyone can view a flight
+    user_check  # Anyone can view a flight
   end
 
    def create?
     true  # Anyone can create a flight
   end
 
-   def update?
-    record.user == user  # Only flight creator can update it
+  def update?
+    user_check  # Only flight creator can update it
   end
 
    def destroy?
-    record.user == user  # Only flight creator can update it
+    user_check  # Only flight creator can update it
+  end
+
+  def edit?
+    user_check
   end
 
   def import?
     true
+  end
+
+  def user_check
+    record.user == user
   end
 end
