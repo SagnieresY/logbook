@@ -40,7 +40,7 @@ class FlightsController < ApplicationController
     @flight.update(flight_params)
 
     if @flight.save
-      redirect_to @flight
+      redirect_to simpleindex_path
     else
       render :edit
     end

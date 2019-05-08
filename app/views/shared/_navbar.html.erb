@@ -19,6 +19,7 @@
           Flights
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Detailed Ledger", flights_path, class: "dropdown-item" %>
           <%= link_to "New Flight", new_flight_path, class: "dropdown-item" %>
           <%= link_to "Import Flights",  import_path, class: "dropdown-item" %>
         </div>

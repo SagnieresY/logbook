@@ -25,6 +25,10 @@ class FlightPolicy < ApplicationPolicy
     user_check
   end
 
+  def update?
+    user_check
+  end
+
   def import?
     true
   end
