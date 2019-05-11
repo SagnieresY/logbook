@@ -1,0 +1,41 @@
+curl --request PUT \
+  --url https://api.typeform.com/forms/qx4gmD/webhooks/logbook \
+  --header 'Authorization: bearer 2cUhm1QdMpj5b9cpznYqKhDjcTSbc3Husj1xYqBPZqFa' \
+  --header 'Content-Type: application/json' \
+  -d '{"url":"https://311c3bc3.ngrok.io/webhooks/receive", "enabled":true}'
+
+{"id":"01DAHKAGJQ5BHVC7Q19H9G36WC","form_id":"qx4gmD","tag":"logbooktest","url":"https://hooks.ecc3e042.ngrok.io","enabled":true,"verify_ssl":true,"created_at":"2019-05-10T19:25:37.752378Z","updated_at":"2019-05-10T19:26:06.761806Z"}
+
+
+curl --request PUT \
+  --url https://api.typeform.com/forms/G3DP9W/webhooks/logbooktest \
+  --header 'Authorization: bearer 2cUhm1QdMpj5b9cpznYqKhDjcTSbc3Husj1xYqBPZqFa' \
+  --header 'Content-Type: application/json' \
+  -d '{"url":"https://311c3bc3.ngrok.io/webhooks/receive", "enabled":true}'
+
+  311c3bc3.ngrok.io
+
+
+/webhooks/receive
+
+
+curl --request PUT \
+  --url https://api.typeform.com/forms/G3DP9W/webhooks/logbooktest \
+  --header 'Authorization: bearer 2cUhm1QdMpj5b9cpznYqKhDjcTSbc3Husj1xYqBPZqFa' \
+  --header 'Content-Type: application/json' \
+  -d '{"url":"https://ecc3e042.ngrok.io/webhooks/receive", "enabled":true}'
+{"id":"01DAHM4RVZJ2KH01GE1C4V3N5Z","form_id":"G3DP9W","tag":"logbooktest","url":"https://ecc3e042.ngrok.io/webhooks/receive","enabled":true,"verify_ssl":true,"created_at":"2019-05-10T19:39:58.208879Z","updated_at":"2019-05-10T19:39:58.208879Z"}
+
+GET
+  curl https://api.typeform.com/forms/qx4gmD/webhooks --header 'Authorization: bearer 2cUhm1QdMpj5b9cpznYqKhDjcTSbc3Husj1xYqBPZqFa' \
+
+
+{:date=>"S65uvdMdbn3A", :from=>"ol9qaQuV1QVL", :to=>"Z0lg6sbxJCE8", :engine_type=>"bfOF6vKgMJzQ", :command_type=>"Jz0SBMqd6odG", :"3e9449b2-ce46-4a6b-8ad3-27320446c840"=>"GUqmXhgDMiRE", :user_id=>"hCi8pUOd681i"}
+
+
+./ngrok http 3000
+
+qx4gmD
+G3DP9W
+https://ecc3e042.ngrok.io/webhooks/receive
+

@@ -1,43 +1,81 @@
 <h2>New Flight</h2>
 <%= simple_form_for (@flight) do |f| %>
-  <div class="row">
-    <div class="w-100"></div>
-    <%= f.input :date,
-                as: :string,
-                input_html: { class: 'flatpickr-input' },
-                wrapper_html: { class: 'col'} %>
-    <%= f.input :from, wrapper_html: { class: 'col'} %>
-    <%= f.input :to, wrapper_html: { class: 'col'} %>
-    <div class="w-100"></div>
-    <%= f.input :aircraft_type, wrapper_html: { class: 'col' }  %>
-    <%= f.input :aircraft_registration, wrapper_html: { class: 'col' }  %>
-    <%= f.input :engine_type,
-                include_blank: false,
-                collection: ["Single", "Multi"], wrapper_html: { class: 'col' }  %>
-    <div class="w-100"></div>
-    <%= f.input :command_type,
-                collection: ["PIC", "Dual", "Co-pilot"],
-                wrapper_html: { class: 'col' }  %>
-    <%= f.input :pic_name, wrapper_html: { class: 'col' }  %>
-    <%= f.input :copi_name, wrapper_html: { class: 'col' }  %>
-   <div class="w-100"></div>
-    <%= f.input :day_time, wrapper_html: { class: 'col' }  %>
-    <%= f.input :night_time, wrapper_html: { class: 'col' }  %>
-    <%= f.input :simulator_time, wrapper_html: { class: 'col' }  %>
-    <div class="w-100"></div>
-    <%= f.input :cross_country,
-                include_blank: false,
-                collection: ["False", "True"],
-                wrapper_html: { class: 'col'} %>
-    <%= f.input :cross_country_day_time, wrapper_html: { class: 'col' }  %>
-    <%= f.input :cross_country_night_time, wrapper_html: { class: 'col' }  %>
-    <div class="w-100"></div>
-    <%= f.input :actual_imc, wrapper_html: { class: 'col' }  %>
-    <%= f.input :hood, wrapper_html: { class: 'col' }  %>
-    <%= f.input :ifr_appr, label: 'IFR Approaches', wrapper_html: { class: 'col' }  %>
-    <%= f.input :takeoffs_landings, wrapper_html: { class: 'col' }  %>
-    <div class="w-100"></div>
-     <%= f.input :remarks, wrapper_html: { class: 'col' } %>
-  </div>
-  <%= f.button :submit, "Record Flight" , class: "btn btn-primary" %>
+<div class="row">
+  <div class="w-100"></div>
+  <%= f.input :date,
+  as: :string,
+  input_html: { class: 'flatpickr-input' },
+  wrapper_html: { class: 'col'} %>
+  <%= f.input :from, wrapper_html: { class: 'col'} %>
+  <%= f.input :to, wrapper_html: { class: 'col'} %>
+  <div class="w-100"></div>
+  <%= f.input :aircraft_type, wrapper_html: { class: 'col' }  %>
+  <%= f.input :aircraft_registration, wrapper_html: { class: 'col' }  %>
+  <%= f.input :engine_type,
+  include_blank: false,
+  collection: ["Single", "Multi"], wrapper_html: { class: 'col' }  %>
+  <div class="w-100"></div>
+  <%= f.input :command_type,
+  collection: ["PIC", "Dual", "Co-pilot"],
+  wrapper_html: { class: 'col' }  %>
+  <%= f.input :pic_name, wrapper_html: { class: 'col' }  %>
+  <%= f.input :copi_name, wrapper_html: { class: 'col' }  %>
+  <div class="w-100"></div>
+  <%= f.input :day_time, wrapper_html: { class: 'col' }  %>
+  <%= f.input :night_time, wrapper_html: { class: 'col' }  %>
+  <%= f.input :simulator_time, wrapper_html: { class: 'col' }  %>
+  <div class="w-100"></div>
+  <%= f.input :cross_country,
+  include_blank: false,
+  collection: ["False", "True"],
+  wrapper_html: { class: 'col'} %>
+  <%= f.input :cross_country_day_time, wrapper_html: { class: 'col' }  %>
+  <%= f.input :cross_country_night_time, wrapper_html: { class: 'col' }  %>
+  <div class="w-100"></div>
+  <%= f.input :actual_imc, wrapper_html: { class: 'col' }  %>
+  <%= f.input :hood, wrapper_html: { class: 'col' }  %>
+  <%= f.input :ifr_appr, label: 'IFR Approaches', wrapper_html: { class: 'col' }  %>
+  <%= f.input :takeoffs_landings, wrapper_html: { class: 'col' }  %>
+  <div class="w-100"></div>
+  <%= f.input :remarks, wrapper_html: { class: 'col' } %>
+</div>
+<%= f.button :submit, "Record Flight" , class: "btn btn-primary" %>
 <% end %>
+
+<button onclick="reference.open();">
+</button>
+
+<div class="container">
+  <!-- This is the DOM element that will contain your embedded typeform -->
+  <p>Please answer the following questions!</p>
+  <div id="my-embedded-typeform"
+  style="width: 100%; height: 500px;"></div>
+</div>
+<script src="https://embed.typeform.com/embed.js" type="text/javascript"></script>
+<!-- <script type="text/javascript">
+  typeformEmbed.makePopup("https://johnny093782.typeform.com/to/G3DP9W",
+  {
+    autoOpen: true,
+    opacity: 0,
+    onSubmit: function () {
+      console.log('Typeform successfully submitted')
+      window.location = "<%= root_url %>"
+    }
+  });
+</script> -->
+
+<script>
+
+  const reference = typeformEmbed.makePopup(
+  'https://johnny093782.typeform.com/to/qx4gmD', // NOTE: Replace with your typeform URL
+  {
+    mode: 'popup',
+    autoClose: 2000,
+    hideHeaders: true,
+    hideFooters: true,
+    onSubmit: function () {
+      console.log('Typeform successfully submitted')
+    }
+  }
+)
+</script>

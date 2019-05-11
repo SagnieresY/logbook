@@ -6,6 +6,15 @@ class FlightsController < ApplicationController
     @flights = policy_scope(current_user.flights.order("date ASC"))
   end
 
+  def my_results
+      @flights = policy_scope(current_user.flights.where(user_id: current_user.id))
+      authorize @flights
+      respond_to do |format|
+        format.html
+        format.csv { send_data @flights.to_csv }
+      end
+    end
+
   def simpleindex
     @flights = policy_scope(current_user.flights.order("date DESC"))
     authorize @flights

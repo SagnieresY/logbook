@@ -36,4 +36,8 @@ class FlightPolicy < ApplicationPolicy
   def user_check
     record.user == user
   end
+
+  def receive?
+    true
+  end
 end

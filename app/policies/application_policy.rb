@@ -10,6 +10,10 @@ class ApplicationPolicy
     false
   end
 
+  def my_results?
+    true
+  end
+
   def simpleindex?
     true
   end

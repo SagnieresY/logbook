@@ -93,4 +93,37 @@ class Flight < ApplicationRecord
       flight.save!
     end
   end
+
+  def self.to_csv
+
+    column_names = %w[date
+      from
+      to
+      pic_name
+      copi_name
+      aircraft_type
+      aircraft_registration
+      command_type
+      engine_type
+      day_time
+      night_time
+      takeoffs_landings
+      actual_imc
+      hood
+      simulator_time
+      ifr_appr
+      cross_country
+      cross_country_day_time
+      cross_country_night_time
+      remarks
+      ]
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |result|
+        csv << result.attributes.values_at(*column_names)
+      end
+    end
+  end
 end
+
+

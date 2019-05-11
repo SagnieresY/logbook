@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   get '/import', to: 'pages#import', as: :import
   get '/simpleindex', to: 'flights#simpleindex'
+
+  post 'webhooks/receive'
+  get 'myresults', to: 'flights#my_results', defaults: { format: 'csv'}
 end
