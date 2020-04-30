@@ -6,7 +6,7 @@
     "@typeform/embed": "^0.9.0",
     "bootstrap": "^4.3.1",
     "flatpickr": "^4.5.7",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "popper.js": "^1.15.0"
   },
   "devDependencies": {
